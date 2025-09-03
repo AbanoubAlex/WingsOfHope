@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wings of Hope</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-xh6oV2..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #009688;
+      --secondary: #FF7043;
+      --accent: #FFD600;
+      --bg: #F9FAFB;
+      --text: #2C2C2C;
+      --dark: #1A1A1A;
+      --card-bg: rgba(255, 255, 255, 0.85);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo img {
+      width: 70px;
+      filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
+    }
+    .logo span {
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #8D153A, #FF9933, #138808, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+      font-size: large;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a:hover { color: #8D153A; background: rgba(141,21,58,0.05); }
+    nav a i { margin-right: 6px; }
+
+    .cta {
+      background: linear-gradient(45deg, var(--secondary), var(--primary));
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .cta:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+    /* Hero */
+    .hero {
+        background: url('hero2.png') center/cover no-repeat;
+      position: relative;
+      padding: 8rem 2rem;
+      text-align: center;
+      color: #293f3d;
+      border-radius: 0 0 40px 40px;
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(255, 191, 0, 0.9);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-shadow: 0 0 8px rgba(1, 1, 8, 0.7);
+    }
+
+    main section { padding: 5rem 2rem; }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    article.card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    article.card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+    article.card h4 { margin-bottom: 1rem; color: var(--primary); }
+    article.card p { font-size: 1rem; color: #444; }
+
+    footer {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 40px 40px 0 0;
+    }
+    footer i { margin: 0 8px; }
+
+    /* Responsive nav */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .menu-toggle div { width: 25px; height: 3px; background: var(--text); }
+
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        background: white;
+        padding: 1.5rem;
+        width: 220px;
+        transform: translateX(100%);
+        transition: 0.3s;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        border-radius: 0 0 0 20px;
+      }
+      nav ul.active { transform: translateX(0); }
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+      <img src="IMG_5156-removebg-preview.png" alt="Wings of Hope Logo"></a>
+      <span>Wings of Hope</span>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+      <div></div><div></div><div></div>
+    </button>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+        <li><a href="AboutUs.html"><i class="fa-solid fa-users"></i>About Us</a></li>
+        <li><a href="Programs.html"><i class="fa-solid fa-book-open"></i>Programs</a></li>
+        <li><a href="Involvement.html"><i class="fa-solid fa-hands-helping"></i>Get Involved</a></li>
+        <li><a href="Contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+        <!-- <li><a href="#" class="cta"><i class="fa-solid fa-heart"></i> Donate</a></li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h1><span id="typed"></span></h1>
+      <p>Empowering communities through education, health, and compassion nationwide.</p>
+      <a href="Involvement.html" class="cta"><i class="fa-solid fa-hand-holding-heart"></i> Join the Movement</a>
+    </div>
+  </section>
+
+  <main>
+    <section>
+      <h2 class="section-title" data-aos="fade-up">Our Programs</h2>
+      <div class="cards">
+        <article class="card" data-aos="zoom-in">
+          <h4><i class="fa-solid fa-graduation-cap"></i> Education Support</h4>
+          <p>Providing school supplies, tutoring, and scholarships to underprivileged children.</p>
+        </article>
+        <article class="card" data-aos="zoom-in" data-aos-delay="100">
+          <h4><i class="fa-solid fa-venus"></i> Women Empowerment</h4>
+          <p>Delivering essentials to families in need through organized drives and partnerships.</p>
+        </article>
+        <article class="card" data-aos="zoom-in" data-aos-delay="200">
+          <h4><i class="fa-solid fa-stethoscope"></i> Health & Wellness</h4>
+          <p>Hosting community clinics and workshops to promote health awareness and access.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-aos="fade-up">Why We Matter</h2>
+      <div class="cards">
+        <article class="card" data-aos="fade-right">
+          <h4><i class="fa-solid fa-chart-line"></i> Impact</h4>
+          <p>Over 5,000 children supported, 2,000 meals distributed, and 300 families empowered annually.</p>
+        </article>
+        <article class="card" data-aos="fade-right" data-aos-delay="100">
+          <h4><i class="fa-solid fa-people-group"></i> Volunteers</h4>
+          <p>All of our programs run thanks to 150 dedicated volunteers every year.</p>
+        </article>
+        <article class="card" data-aos="fade-right" data-aos-delay="200">
+          <h4><i class="fa-solid fa-hands-holding-circle"></i> Get Involved</h4>
+          <p>Whether donating or volunteering, your contribution fuels real change. Join us now!</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Wings of Hope • Proudly serving communities with compassion.</p>
+    <p>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </p>
+  </footer>
+
+  <!-- JS Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+    // Typed.js
+    new Typed("#typed", {
+      strings: ["Building Hope!", "Changing Lives!", "One Hand at a Time"],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
+
+    // Particles.js
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "size": { "value": 3 },
+        "move": { "speed": 2 },
+        "line_linked": { "enable": true }
+      }
+    });
+
+    // AOS
+    AOS.init({ duration: 1000, once: true });
+
+    // GSAP hero animation
+    gsap.from(".hero-content", { y: 50, opacity: 0, duration: 1.5, ease: "power2.out" });
+  </script>
+</body>
+</html>

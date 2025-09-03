@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Involved - Wings of Hope</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #009688;
+      --secondary: #FF7043;
+      --accent: #FFD600;
+      --bg: #F9FAFB;
+      --text: #2C2C2C;
+      --card-bg: rgba(255, 255, 255, 0.85);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo img { width: 70px; }
+    .logo span {
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #8D153A, #FF9933, #138808, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul { display: flex; gap: 1.5rem; list-style: none; align-items: center; font-size: large; }
+    nav a { text-decoration: none; font-weight: 600; color: #333; padding: 0.6rem 1.2rem; border-radius: 6px; transition: 0.3s; }
+    nav a:hover { color: #8D153A; background: rgba(141,21,58,0.05); }
+
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .menu-toggle div { width: 25px; height: 3px; background: var(--text); }
+
+    main { padding: 5rem 2rem; }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    form {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background: linear-gradient(45deg, var(--secondary), var(--primary));
+      color: white;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+    /* Stylish popup */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: var(--primary);
+      color: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+    }
+
+    .popup.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    footer {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 40px 40px 0 0;
+    }
+
+    footer i { margin: 0 8px; }
+
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        background: white;
+        padding: 1.5rem;
+        width: 220px;
+        transform: translateX(100%);
+        transition: 0.3s;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        border-radius: 0 0 0 20px;
+      }
+      nav ul.active { transform: translateX(0); }
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="IMG_5156-removebg-preview.png" alt="Logo"></a>
+      <span>Wings of Hope</span>
+    </div>
+    <button class="menu-toggle" id="menu-toggle"><div></div><div></div><div></div></button>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+        <li><a href="AboutUs.html"><i class="fa-solid fa-users"></i>About Us</a></li>
+        <li><a href="Programs.html"><i class="fa-solid fa-book-open"></i>Programs</a></li>
+        <li><a href="Involvement.html"><i class="fa-solid fa-hands-helping"></i>Get Involved</a></li>
+        <li><a href="Contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="section-title" data-aos="fade-up">Get Involved</h2>
+      <form id="getInvolvedForm" data-aos="fade-up" data-aos-delay="100">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="Your mobile number" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+
+        <label for="services">Interested Services</label>
+<select id="services" name="services" required>
+  <option value="" disabled selected>Select a service</option>
+  <option value="Medical">Medical</option>
+  <option value="Financial">Financial</option>
+  <option value="Education">Education</option>
+  <option value="Technology">Technology</option>
+</select>
+
+
+        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Stylish success popup -->
+  <div class="popup" id="successPopup">Thank you! Your response has been submitted successfully.</div>
+
+  <footer>
+    <p>&copy; 2025 Wings of Hope • Proudly serving communities with compassion.</p>
+    <p>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+    AOS.init({ duration: 1000, once: true });
+
+    // Stylish popup submission
+    const form = document.getElementById('getInvolvedForm');
+    const popup = document.getElementById('successPopup');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent actual form submission
+      popup.classList.add('show');
+
+      setTimeout(() => {
+        popup.classList.remove('show');
+        form.reset();
+      }, 2500); // popup visible for 2.5s
+    });
+  </script>
+</body>
+</html>

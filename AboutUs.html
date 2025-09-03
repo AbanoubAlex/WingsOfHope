@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Wings of Hope</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- AOS Animate on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #009688;
+      --secondary: #FF7043;
+      --accent: #FFD700;
+      --bg: #F9FAFB;
+      --text: #2C2C2C;
+      --card-bg: rgba(255, 255, 255, 0.7);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky; top: 0; z-index: 100;
+      padding: 0.8rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      animation: fadeDown 1s ease forwards;
+    }
+    @keyframes fadeDown {
+      from {opacity:0; transform: translateY(-30px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo img { width: 70px; filter: drop-shadow(0 0 8px rgba(0,0,0,0.5)); }
+    .logo span {
+      font-size: 1.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;
+      background: linear-gradient(90deg, #8D153A, #FF9933, #138808, #FFD700);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 6px rgba(0,0,0,0.4);
+    }
+
+    nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+    nav a {
+      text-decoration: none; font-weight: 600; color: #333;
+      padding: 0.6rem 1rem; border-radius: 6px; position: relative;
+      transition: all 0.3s ease;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    nav a:hover {
+      color: #8D153A; background: rgba(141,21,58,0.08);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    section { padding: 4rem 2rem; max-width: 1100px; margin: auto; }
+    .section-title {
+      font-size: 2.2rem; margin-bottom: 2rem; text-align: center; font-weight: 700;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: fadeInScale 1s ease;
+    }
+    @keyframes fadeInScale {
+      from {opacity:0; transform: scale(0.8);}
+      to {opacity:1; transform: scale(1);}
+    }
+
+    .card {
+      background: var(--card-bg); backdrop-filter: blur(10px);
+      padding: 2rem; border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      margin-bottom: 1rem; transition: all 0.3s ease;
+    }
+    .card:hover { transform: translateY(-6px) scale(1.02); }
+    .card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem; }
+    .card ul { margin-left: 1.2rem; }
+    .card li { margin-bottom: 0.5rem; }
+
+    footer {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white; text-align: center;
+      padding: 2.5rem 1rem; font-size: 0.95rem; border-radius: 40px 40px 0 0;
+    }
+
+    /* Mobile nav */
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .menu-toggle div { width: 25px; height: 3px; background: var(--text); }
+    @media(max-width: 768px) {
+      nav ul {
+        position: absolute; top: 100%; right: 0; flex-direction: column;
+        background: white; padding: 1.5rem; width: 220px;
+        transform: translateX(100%); transition: transform 0.3s ease-in-out;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+      nav ul.active { transform: translateX(0); }
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+      <img src="IMG_5156-removebg-preview.png" alt="Wings of Hope Logo"></a>
+      <span>Wings of Hope</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div><div></div><div></div>
+    </div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="AboutUs.html" class="active"><i class="fa-solid fa-users"></i> About Us</a></li>
+        <li><a href="Programs.html"><i class="fa-solid fa-hands-helping"></i> Programs</a></li>
+        <li><a href="Involvement.html"><i class="fa-solid fa-heart"></i> Get Involved</a></li>
+        <li><a href="Contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Vision -->
+  <section data-aos="fade-up">
+    <div class="section-title">Vision Statement</div>
+    <div class="card">
+      <p>Our vision is to empower young people and women in Sri Lanka with the knowledge and practical skills needed for financial independence and dignity, while also meeting their essential needs for food and medical care. We aim to foster thriving communities where cycles of poverty are broken and opportunities for sustainable change are created for all.</p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section data-aos="fade-up">
+    <div class="section-title">Mission Statement</div>
+    <div class="card">
+      <p>To empower disadvantaged youth and women, especially in rural and marginalized communities across Sri Lanka, through an innovative and holistic learning approach that fosters dignity, opportunity, and sustainable development. We are committed to meeting essential needs by providing nutritious food, medical services, and access to healthcare, ensuring the overall well-being and resilience of the communities we serve.</p>
+    </div>
+  </section>
+
+  <!-- Who / What -->
+  <section data-aos="fade-right">
+    <div class="section-title">Who We Are & What We Do</div>
+    <div class="card">
+      <h3>Who are we?</h3>
+      <p>Wings of Hope is a global humanitarian NGO dedicated to youth & women empowerment and community development.</p>
+      <br>
+      <h3>What are we doing?</h3>
+      <p>We provide disadvantaged youth and families in Sri Lanka with access to quality education, practical skills training in technology and small business, mentorship, medical services, and resources to promote healthy daily habits and sanitation. Our work fosters dignity, self-reliance, and leadership while building trusting, caring relationships.</p>
+    </div>
+  </section>
+
+  <!-- For whom / How -->
+  <section data-aos="fade-left">
+    <div class="section-title">For Whom and Where?</div>
+    <div class="card">
+      <p>We serve vulnerable and underserved youth, children, and families, particularly in rural and marginalized communities across Sri Lanka, with a focus on both urban and rural areas facing barriers to education, economic opportunity, and basic needs.</p>
+    </div>
+    <div class="section-title">How are we doing it?</div>
+    <div class="card">
+      <ul>
+        <li>Hands-on local workshops and training centers for practical skills development.</li>
+        <li>Digital mentorship and e-learning platforms for accessible education.</li>
+        <li>Awareness campaigns to promote healthy habits and sanitation.</li>
+        <li>Strategic partnerships with local NGOs, schools, and community centers.</li>
+        <li>Regular medical service trips to provide food, medical services, and support for women.</li>
+        <li>A global network of dedicated volunteers and professionals guided by compassion.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section data-aos="zoom-in">
+    <div class="section-title">Our Core Values</div>
+    <div class="card">
+      <ul>
+        <li><strong>Compassion:</strong> Upholding empathy and a deep commitment to alleviating suffering.</li>
+        <li><strong>Integrity:</strong> Upholding honesty, transparency, and accountability in all actions.</li>
+        <li><strong>Community:</strong> Fostering trusting relationships that empower people to uplift one another.</li>
+        <li><strong>Sustainability:</strong> Creating long-term, practical solutions for lasting impact.</li>
+        <li><strong>Empowerment:</strong> Enabling youth and families to realize their potential and contribute positively to society.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wings of Hope • Empowering communities with compassion and dignity.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ once: true, duration: 1000 });</script>
+</body>
+</html>
